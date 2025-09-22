@@ -1,5 +1,5 @@
-const ProductCard = ({product}) => {
-    console.log(product.image);
+const ProductCard = ({product,onhandleCart}) => {
+    //console.log(product.image);
 return (
     <div className="flex justify-center mt-10 px-4">
         <div className="w-full max-w-sm border border-gray-200 rounded-xl shadow-md p-6 bg-white font-sans flex flex-col">
@@ -23,7 +23,7 @@ return (
                     ★ {product.rating?.rate} ({product.rating?.count})
                 </span>
             </div>
-            <button className="w-full py-2 bg-blue-700 hover:bg-blue-800 transition-colors text-white rounded-md font-semibold text-base cursor-pointer mt-auto">
+            <button onClick={()=>onhandleCart(product.id)} className="w-full py-2 bg-blue-700 hover:bg-blue-800 transition-colors text-white rounded-md font-semibold text-base cursor-pointer mt-auto">
                 Add to Cart
             </button>
         </div>

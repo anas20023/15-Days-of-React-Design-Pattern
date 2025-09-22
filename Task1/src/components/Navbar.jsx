@@ -1,12 +1,24 @@
-const Navbar = ({cart}) => {
-return (
-    <div className="bg-blue-500 flex flex-row justify-center items-center text-white w-full">
-        <nav className="px-2 py-4 flex flex-row justify-between items-baseline-last gap-10">
-            <h2 className="text-2xl font-bold">Product List</h2>
-            <div className="text-2xl font-semibold">Cart: {cart}</div>
-        </nav>
-    </div>
-)
-}
+import { ShoppingCart } from "lucide-react"; 
+const Navbar = ({ onShowCart }) => {
 
-export default Navbar
+  return (
+    <nav className="text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={onShowCart}
+              className="flex cursor-pointer items-center bg-blue-800 hover:bg-blue-700 px-3 py-2 rounded-lg transition"
+            >
+              <ShoppingCart size={20} className="mr-2" />
+              Show Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
