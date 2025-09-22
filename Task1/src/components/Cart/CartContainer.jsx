@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 const CartContainer = ({ list, isOpen, onClose }) => {
-  const [grandTotal,setGrandTotal]=useState(0);
-  const calculateGrandTotal=()=>{
-    list.forEach(l => {
-      const tm=(l.qty*l.price);
-      setGrandTotal(grandTotal+tm)
-    });
-  }
-  useEffect(()=>{
-    calculateGrandTotal();
-  },[list])
-  
+  const [grandTotal, setGrandTotal] = useState(0);
+  useEffect(() => {
+    const total = list.reduce((acc, item) => acc + item.qty * item.price, 0);
+    setGrandTotal(total);
+  }, [list]);
+
+
   if (!isOpen) return null;
   return (
     <div className="fixed inset-y-0 right-0 z-50 flex">
@@ -43,13 +39,13 @@ const CartContainer = ({ list, isOpen, onClose }) => {
                 />
                 <div className="flex-1">
                   <p className="text-sm font-medium">{item.title}</p>
-                  <p className="text-gray-600 font-semibold text-sm">${item.price} | Quantity: {item.qty} | Total: {(item.price*item.qty).toFixed(2)}</p>
+                  <p className="text-gray-600 font-semibold text-sm">${item.price} | Quantity: {item.qty} | Total: {(item.price * item.qty).toFixed(2)}</p>
                 </div>
               </div>
             ))
           )}
         </div>
-        
+
         {list.length > 0 && (
           <div className="pt-4 border-t">
             <button className="w-full font-semibold bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
