@@ -105,7 +105,7 @@ const ProductListContainer = () => {
   };
 
   const handleIncrease = (id) => {
-   //console.log(id + "++");
+    //console.log(id + "++");
     setCartItems((prev) => {
       const exists = prev.find((item) => item.id === id);
       if (!exists) return prev;
