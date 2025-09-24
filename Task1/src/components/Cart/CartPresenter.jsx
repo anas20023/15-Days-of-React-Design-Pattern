@@ -1,5 +1,5 @@
 import CartCard from '../Cart/CartCard'
-const CartPresenter = ({list,grandTotal,handleClose}) => {
+const CartPresenter = ({ list, grandTotal, handleClose, onIncrease, onDecrease }) => {
     return (
         <div className="fixed inset-y-0 right-0 z-50 flex">
             <div className="w-80 sm:w-96 bg-white h-full shadow-lg p-4 flex flex-col">
@@ -19,7 +19,7 @@ const CartPresenter = ({list,grandTotal,handleClose}) => {
                         <p className="text-gray-500">Cart is Empty!</p>
                     ) : (
                         list.map((item, index) => (
-                            <CartCard item={item} key={index} />
+                            <CartCard item={item} key={index} onIncrease={onIncrease} onDecrease={onDecrease} />
                         ))
                     )}
                 </div>
