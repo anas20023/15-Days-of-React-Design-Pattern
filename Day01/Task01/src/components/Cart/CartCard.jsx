@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CartCard = ({ item, onIncrease, onDecrease }) => {
-    console.log(item);
+   // console.log(item);
     if(item.qty <=0) return null
     return (
         <div className="flex flex-row justify-between items-center">
