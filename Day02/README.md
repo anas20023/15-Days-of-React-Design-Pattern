@@ -1,16 +1,34 @@
-# React + Vite
+# Code Style Comparison
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This table compares different aspects of **Code Styles** based on pros
+and cons.
 
-Currently, two official plugins are available:
+  -----------------------------------------------------------------------------------
+  Aspect            Pros                             Cons
+  ----------------- -------------------------------- --------------------------------
+  **Code Styles**   \- Improves                      \- Can feel
+                    consistency`<br>`{=html}- Easier restrictive`<br>`{=html}-
+                    collaboration`<br>`{=html}-      Requires learning curve
+                    Better maintainability           
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  **Validation**    \- Prevents bugs                 \- May slow down
+                    early`<br>`{=html}- Ensures data development`<br>`{=html}- Can
+                    integrity`<br>`{=html}- Reduces  add boilerplate code
+                    runtime errors                   
 
-## React Compiler
+  **Reset**         \- Provides clean                \- May remove useful
+                    state`<br>`{=html}- Prevents     defaults`<br>`{=html}- Adds
+                    unexpected                       complexity if overused
+                    behavior`<br>`{=html}- Useful in 
+                    testing                          
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  **Readability**   \- Easier to                     \- Can conflict with performance
+                    understand`<br>`{=html}- Faster  optimizations`<br>`{=html}-
+                    onboarding`<br>`{=html}-         Subjective to style preferences
+                    Improves long-term maintenance   
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  **Complexity**    \- More features &               \- Harder to learn`<br>`{=html}-
+                    flexibility`<br>`{=html}-        Increases chance of
+                    Handles advanced cases           errors`<br>`{=html}- Harder to
+                                                     debug
+  -----------------------------------------------------------------------------------
