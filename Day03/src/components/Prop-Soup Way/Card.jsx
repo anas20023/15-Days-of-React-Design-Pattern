@@ -1,0 +1,91 @@
+const ProductCard = ({
+    title,
+    body,
+    image,
+    price,
+    rating,
+    discount,
+    stock,
+    category,
+    brand,
+    primaryAction,
+    secondaryAction,
+}) => {
+    return (
+        <div className="card_container flex flex-col w-full max-w-[400px] mx-auto rounded-xl bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+            <div className="card_header bg-gray-100 px-5 py-4 border-b border-gray-200">
+                <div className="flex justify-between items-center">
+                    <h2 className="text-2xl font-bold text-gray-900 truncate">{title}</h2>
+                    {discount && (
+                        <span className="text-sm font-semibold text-red-600 bg-red-100 px-2 py-1 rounded">
+                            {discount}% OFF
+                        </span>
+                    )}
+                </div>
+                {(category || brand) && (
+                    <div className="flex gap-2 mt-1">
+                        {category && (
+                            <span className="text-xs text-gray-500 uppercase">{category}</span>
+                        )}
+                        {brand && (
+                            <span className="text-xs text-gray-500 uppercase">{brand}</span>
+                        )}
+                    </div>
+                )}
+            </div>
+            <div className="card_body flex flex-col p-5 gap-4">
+                <div className="flex flex-col gap-3">
+                    {image && (
+                        <div className="w-full h-64 overflow-hidden rounded-lg">
+                            <img
+                                src={image}
+                                alt={title || "Product image"}
+                                className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                            />
+                        </div>
+                    )}
+                    <div className="flex flex-col gap-2">
+                        <div className="text-gray-700 text-lg leading-relaxed">{body}</div>
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-2 items-center">
+                                <span className="text-xl font-semibold text-gray-900">
+                                    ${price.toFixed(2)}
+                                </span>
+                                {discount && (
+                                    <span className="text-sm text-gray-500 line-through">
+                                        ${(price / (1 - discount / 100)).toFixed(2)}
+                                    </span>
+                                )}
+                            </div>
+                            {rating && (
+                                <div className="flex items-center gap-1">
+                                    <span className="text-yellow-500">{'★'.repeat(Math.floor(rating))}</span>
+                                    <span className="text-gray-500 text-sm">({rating})</span>
+                                </div>
+                            )}
+                        </div>
+                        {stock !== undefined && (
+                            <div className="text-sm text-gray-600">
+                                {stock > 0 ? `In Stock: ${stock} units` : 'Out of Stock'}
+                            </div>
+                        )}
+                    </div>
+                </div>
+                <div className="flex justify-end gap-3 mt-3">
+                    {secondaryAction && (
+                        <div className="flex items-center">
+                            {secondaryAction}
+                        </div>
+                    )}
+                    {primaryAction && (
+                        <div className="flex items-center">
+                            {primaryAction}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default ProductCard;
