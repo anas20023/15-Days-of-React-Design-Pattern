@@ -1,4 +1,4 @@
-import CompoundPatternWay from "./Compund Pattern/CompoundPatternWay"
+import CompoundPatternWay from "./Compound Pattern/CompoundPatternWay"
 
 const ContainerPatterned = ({ title, body, category, brand, image, price, discount, rating, stock, primaryAction, secondaryAction }) => {
     return (
